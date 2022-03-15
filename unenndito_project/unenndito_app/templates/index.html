@@ -1,0 +1,345 @@
+{% extends 'base.html' %}
+{% block title %} Unen Ndito Akwa Ibom {% endblock title %}
+{% load static %}
+{% block navMenu %}
+    <nav class="navbar navbar-expand-sm bg-navbar-custom navbar-dark sticky-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <!-- LOGO -->
+                <li class="nav-item mr-5 mt-1">
+                    <a href="index.html" class="nav-link navbar-brand">
+                        <span class="logo-lg">
+                            <a class="" href="{%  url 'home' %}"><img src="{% static 'unenndito_app/assets/images/' %}" alt="" class="logo-dark myLogo" height="19"></a>
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                    <form>
+                        <div class="input-group">
+                            <input type="text" class="form-control dropdown-toggle" placeholder="Search..." id="top-search">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto navbar-right">
+                <li>
+                    <a href="{%  url 'home' %}" class="nav-link">Login<i class=""></i></a>
+                </li>
+
+                <li>
+                    <a href="{%  url 'home' %}" class="nav-link">Signup<i class="fa fa-telegram fa-lg"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock navMenu %}
+
+{% block content %}
+    <!-- START HERO -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5">
+                    <div class="mt-md-4">
+                        <div>
+                            <span class="badge badge-danger badge-pill">Alpha 1.0 </span>
+                        </div>
+                        <h2 class="text-white font-weight-normal mb-1 mt-3 hero-title">
+                            Stay connected with like minds in your local government
+                        </h2>
+
+                        <p class="mb-4 font-16 text-white-50">Unen Ndito Akwa Ibom is an all encompassing socio-cultural group which is an umbrella organization which incorporates the goals, unity, essence, and culture of the three prominent tribes in Akwa Abassi Ibom State, Nigeria; namely, Ibibio, Annang and Oro.</p>
+                        <a href="{%  url 'home' %}" class="btn btn-success mb-1">Let me in!</a>
+
+                        {% comment %} <div class="alert alert-primary bg-white" role="alert">
+                            <strong>Please allow access to your location - </strong> We use it to find your representatives
+                        </div> {% endcomment %}
+
+                        <div class="alert alert-warning bg-white" role="alert">
+                            <i class="dripicons-warning mr-2"></i>Please <strong>allow </strong>  access to your location - We use it to find your representatives
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="text-md-right mt-3 ml-3 mt-md-0">
+                        <img src="{% static 'unenndito_app/assets/images/unenndito01.jpg' %}" alt="" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+            <video width="640" height="480" controls>
+                <source src="{% static 'unenndito_app/assets/media/videos/vid01.mp4' %}" type="video/mp4">
+                <!-- Your browser does not support the video tag. -->
+            </video>
+        </div>
+    </section>
+    <!-- END HERO -->
+
+
+
+    <!-- START FEATURES 1 -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <h1 class="mt-0"><i class="mdi mdi-heart-multiple-outline"></i></h1>
+                        <h3>Features you'll <span class="text-danger">love</span></h3>
+                        <p class="text-muted mt-2">Unen Ndito provides an interface between governments and their citizens
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2 py-5 align-items-center">
+                <div class="col-lg-5">
+                    <img src="{% static 'unenndito_app/assets/images/features-1.svg' %}" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 offset-lg-1">
+                    <h3 class="font-weight-normal">Automatic news tracking</h3>
+                    <p class="text-muted mt-3">Unen Ndito scrapes data daily from your government providing you with all the information you need:</p>
+
+                    <div class="mt-4">
+                        <p class="text-muted"><i class="mdi mdi-circle-medium text-primary"></i> Find bills relating to topics you care about </p>
+                        <p class="text-muted"><i class="mdi mdi-circle-medium text-primary"></i> Get notified when a bill progresses </p>
+                        <p class="text-muted"><i class="mdi mdi-circle-medium text-primary"></i> See when the bill readings are taking place </p>
+                        <p class="text-muted"><i class="mdi mdi-circle-medium text-primary"></i> See how your representatives voted and contact them with 1 click through any medium </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pb-3 pt-5 align-items-center">
+                <div class="col-lg-6">
+                    <h3 class="font-weight-normal"> The place to share and be heard </h3>
+                    <p class="text-muted mt-3"> By becoming a member, you become part of a global community of Unen Ndito users with a vision for a more hopeful world </p>
+
+                    <div class="mt-4">
+                        <p class="text-muted"><i class="mdi mdi-circle-medium text-success"></i> Read, vote and reply on other comments </p>
+                        <p class="text-muted"><i class="mdi mdi-circle-medium text-success"></i> Connect with other users </p>
+                        <p class="text-muted"><i class="mdi mdi-circle-medium text-success"></i> Focus the debate on the work of the government </p>
+                        <p class="text-muted"><i class="mdi mdi-circle-medium text-success"></i> Uncover the facts together, hold the powerful to account and share your ideas and arguments </p>
+                    </div>
+
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <img src="{% static 'unenndito_app/assets/images/features-2.svg' %}" class="img-fluid" alt="">
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- END FEATURES 1 -->
+
+
+
+    <!-- START FAQ -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <h1 class="mt-0"><i class="mdi mdi-frequently-asked-questions"></i></h1>
+                        <h3>Frequently Asked <span class="text-primary">Questions</span></h3>
+                        <button type="button" class="btn btn-info btn-sm mt-2 ml-1"><i class="mdi mdi-twitter mr-1"></i> Send us a tweet</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-5 offset-lg-1">
+                    <!-- Question/Answer -->
+                    <div>
+                        <div class="faq-question-q-box">Q.</div>
+                        <h4 class="faq-question text-body">How do you collect the data?</h4>
+                        <p class="faq-answer mb-4 pb-1 text-muted">
+                        Data is scrapped from online sources provided b your government
+                    </div>
+
+                    <!-- Question/Answer -->
+                    <div>
+                        <div class="faq-question-q-box">Q.</div>
+                        <h4 class="faq-question text-body">What is included in the membership?</h4>
+                        <p class="faq-answer mb-4 pb-1 text-muted"> Membership includes the ability to create and read comments and connect with other users </p>
+                    </div>
+
+                </div>
+                <!--/col-lg-5 -->
+
+                <div class="col-lg-5">
+                    <!-- Question/Answer -->
+                    <div>
+                        <div class="faq-question-q-box">Q.</div>
+                        <h4 class="faq-question text-body">Will it be free always?</h4>
+                        <p class="faq-answer mb-4 pb-1 text-muted"> Yes, government tracking will always be free and available to everyone. Membership will cost $2/month (first 100 users get free lifetime membership). </p>
+                    </div>
+
+                    {% comment %} <!-- Question/Answer -->
+                    <div>
+                        <div class="faq-question-q-box">Q.</div>
+                        <h4 class="faq-question text-body">Will you regularly give updates of Hyper?</h4>
+                        <p class="faq-answer mb-4 pb-1 text-muted">Yes, We will update the Hyper regularly. All the
+                            future updates would be available without any cost.</p>
+                    </div> {% endcomment %}
+
+                </div>
+                <!--/col-lg-5-->
+            </div>
+            <!-- end row -->
+
+        </div> <!-- end container-->
+    </section>
+    <!-- END FAQ -->
+
+    
+    <!-- START CONTACT -->
+    <section class="py-5 bg-light-lighten border-top border-bottom border-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <h3>Get In <span class="text-primary">Touch</span></h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center mt-3">
+                <div class="col-lg-4">
+                    <p class="text-muted mt-3"><span class="font-weight-bold">Customer Support:</span><br> <span class="d-block mt-1">+234 00 000 000 00</span></p>
+                    <p class="text-muted mt-3"><span class="font-weight-bold">Email Address:</span><br> <span class="d-block mt-1">contact@unenndito.com</span></p>
+                    {% comment %} <p class="text-muted mt-4"><span class="font-weight-bold">Office Address:</span><br> <span class="d-block mt-1">4461 Cedar Street Moro, AR 72368</span></p>
+                    <p class="text-muted mt-4"><span class="font-weight-bold">Office Time:</span><br> <span class="d-block mt-1">9:00AM To 6:00PM</span></p> {% endcomment %}
+                </div>
+
+                <div class="col-lg-4">
+                    {% comment %} <p class="text-muted"><span class="font-weight-bold">Customer Support:</span><br> <span class="d-block mt-1">+1 234 56 7894</span></p>
+                    <p class="text-muted mt-4"><span class="font-weight-bold">Email Address:</span><br> <span class="d-block mt-1">info@gmail.com</span></p> {% endcomment %}
+                    <p class="text-muted mt-3"><span class="font-weight-bold">Office Address:</span><br> <span class="d-block mt-1">3 Turner St, Chelmer QLD 4068 AUSTRALIA</span></p>
+                    <p class="text-muted mt-3"><span class="font-weight-bold">Office Time:</span><br> <span class="d-block mt-1">9:00AM To 6:00PM</span></p>
+                </div>
+
+                <div class="col-lg-4">
+                    <p class="text-muted mt-3"><span class="font-weight-bold">Twitter:</span><br> <span class="d-block mt-1">@unenndito</span></p>
+                    <p class="text-muted mt-3"><span class="font-weight-bold">Linkedin:</span><br> <span class="d-block mt-1">@unenndito</span></p>
+                </div>
+
+                {% comment %} <div class="col-md-8">
+                    <form>
+                        <div class="row mt-4">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="fullname">Your Name</label>
+                                    <input class="form-control form-control-light" type="text" id="fullname" placeholder="Name...">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="emailaddress">Your Email</label>
+                                    <input class="form-control form-control-light" type="email" required="" id="emailaddress" placeholder="Enter you email...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-1">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="subject">Your Subject</label>
+                                    <input class="form-control form-control-light" type="text" id="subject" placeholder="Enter subject...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-1">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="comments">Message</label>
+                                    <textarea id="comments" rows="4" class="form-control form-control-light" placeholder="Type your message here..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-2">
+                            <div class="col-12 text-right">
+                                <button class="btn btn-primary">Send a Message <i
+                                    class="mdi mdi-telegram ml-1"></i> </button>
+                            </div>
+                        </div>
+                    </form>
+                </div> {% endcomment %}
+            </div>
+        </div>
+    </section>
+    <!-- END CONTACT -->
+
+{% endblock content %}
+
+
+
+{% block footer %}
+    <!-- START FOOTER -->
+    <footer class="footer-alt mt-5 mb-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <a href="{%  url 'home' %}">
+                        <span>
+                            <img src="{% static 'unenndito_app/assets/images/' %}" alt="" class="logo-dark myLogo mt-1" height="19" width="119">
+                        </span>
+                    </a>
+
+                    <p class="text-white-50 mt-3">
+                        Unen Ndito provides an interface between you and your government
+                    </p>
+
+                    <ul class="social-list list-inline mt-3">
+                        <li class="list-inline-item text-center">
+                            <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
+                        </li>
+
+                        <li class="list-inline-item text-center">
+                            <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-2 mt-3 mt-lg-0">
+                    <h5 class="text-white">Company</h5>
+
+                    <ul class="list-unstyled pl-0 mb-0 mt-3">
+                        <li class="mt-2"><a href="javascript: void(0);" class="text-white-50">About Us</a></li>
+                        <li class="mt-2"><a href="javascript: void(0);" class="text-white-50">Blog</a></li>
+                    </ul>
+
+                </div>
+
+
+                <div class="col-lg-2 mt-3 mt-lg-0">
+                    <h5 class="text-white">Discover</h5>
+
+                    <ul class="list-unstyled pl-0 mb-0 mt-3">
+                        <li class="mt-2"><a href="javascript: void(0);" class="text-white-50">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="mt-5">
+                        <p class="text-white-50 mt-4 text-center mb-0"> © Michael Oton <script>document.write(new Date().getFullYear()) </script> - unenndito.com </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+{% endblock footer %}
+    
+

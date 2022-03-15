@@ -1,0 +1,261 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}Unen Ndito Portal{% endblock title %}</title>
+    <meta charset="UTF-8" />    <!--Character encoding.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'unenndito_app/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'unenndito_app/bs5/css/bootstrap.css' %}">
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{% static 'unenndito_app/assets/images/' %}">
+
+    <!-- App css -->
+    <link href="{% static 'unenndito_app/assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'unenndito_app/assets/css/app.min.css' %}" rel="stylesheet" type="text/css" id="light-style" />
+    <link href="{% static 'unenndito_app/assets/css/app-dark.min.css' %}" rel="stylesheet" type="text/css" id="dark-style" />
+</head>
+
+
+<body class="loading authentication-bg" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":true, "leftSidebarScrollable":false,"darkMode":true, "showRightSidebarOnStart": true}'>
+    {% block navMenu %}
+        <nav class="navbar navbar-expand-sm bg-navbar-custom navbar-dark sticky-top">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <!-- LOGO -->
+                    <li class="nav-item mr-3 mt-0 mb-1">
+                        <a href="{%  url 'home' %}" class="nav-link navbar-brand">
+                            <span class="logo-lg">
+                                <img src="{% static 'unenndito_app/assets/images/' %}" alt="" class="logo-dark myLogo" height="19">
+                            </span>
+                        </a>
+                    </li>
+
+
+                    <li class="mt-1">
+                        <form>
+                            <div class="input-group">
+                                <input type="text" class="form-control dropdown-toggle" placeholder="Search..." id="top-search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto navbar-right">
+                    <li class="nav-link">
+                        <div>
+                            <form>
+                                <div class="input-group w-75">
+                                    <span class="mt-1">Choose country: </span>
+                                    &nbsp;
+                                    &nbsp;
+                                    <label for="countryList"></label>
+
+                                    <select name="countryList" id="countryList" class="form-control select-dropdown">
+                                    <option value="0">Select Country</option>
+                                    <option value="1">Australia</option>
+                                    <option value="2">India</option>
+                                    <option value="3">Nigeria</option>
+                                    <option value="5">More countries coming soon...</option>
+                                    </select>                                    
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+
+                    <li class="dropdown mt-1">
+                        <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="dripicons-bell noti-icon"></i>
+                            <span class="noti-icon-badge"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-lg">
+
+                            <!-- item-->
+                            <div class="dropdown-item noti-title">
+                                <h5 class="m-0">
+                                    <span class="float-right">
+                                        <a href="javascript: void(0);" class="text-dark">
+                                            <small>Clear All</small>
+                                        </a>
+                                    </span>Notification
+                                </h5>
+                            </div>
+
+                            <div style="max-height: 230px;" data-simplebar>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-primary">
+                                        <i class="mdi mdi-comment-account-outline"></i>
+                                    </div>
+                                    <p class="notify-details">Caleb Flakelar commented on Admin
+                                        <small class="text-muted">1 min ago</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-info">
+                                        <i class="mdi mdi-account-plus"></i>
+                                    </div>
+                                    <p class="notify-details">New user registered.
+                                        <small class="text-muted">5 hours ago</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon">
+                                        <img src="assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" /> </div>
+                                    <p class="notify-details">Cristina Pride</p>
+                                    <p class="text-muted mb-0 user-msg">
+                                        <small>Hi, How are you? What about our next meeting</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-primary">
+                                        <i class="mdi mdi-comment-account-outline"></i>
+                                    </div>
+                                    <p class="notify-details">Caleb Flakelar commented on Admin
+                                        <small class="text-muted">4 days ago</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon">
+                                        <img src="assets/images/users/avatar-4.jpg" class="img-fluid rounded-circle" alt="" /> </div>
+                                    <p class="notify-details">Karen Robinson</p>
+                                    <p class="text-muted mb-0 user-msg">
+                                        <small>Wow ! this admin looks good and awesome design</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-info">
+                                        <i class="mdi mdi-heart"></i>
+                                    </div>
+                                    <p class="notify-details">Carlos Crouch liked
+                                        <b>Admin</b>
+                                        <small class="text-muted">13 days ago</small>
+                                    </p>
+                                </a>
+                            </div>
+
+                            <!-- All-->
+                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
+                                View All
+                            </a>
+
+                        </div>
+                    </li>
+
+                    <li class="mt-1">
+                        <a class="nav-link right-bar-toggle" href="javascript: void(0);">
+                            <span class="dripicons-gear noti-icon"></span>
+                        </a>
+                    </li>
+                    <li class="mt-1">
+                        <a href="{%  url 'home' %}" class="nav-link">Login<i class=""></i></a>
+                    </li>
+
+                    <li class="mt-1">
+                        <a href="{%  url 'home' %}" class="nav-link">Signup<i class="fa fa-telegram fa-lg"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    {% endblock navMenu %}
+
+
+
+{% comment %} <div class="container-fluid"> {% endcomment %}
+
+    <div class="container-fluid">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+
+
+
+    <div class="container-fluid">
+        {% block footer %}
+            <!-- START FOOTER -->
+            <footer class="footer-alt mt-5 mb-1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <a href="{%  url 'home' %}">
+                                <span>
+                                    <img src= "{% static 'unenndito_app/assets/images/' %}" alt="" class="logo-dark myLogo mt-1" height="19" width="119">
+                                </span>
+                            </a>
+                            <p class="text-white-50 mt-3">
+                                Unen Ndito provides an interface between you and your community
+                            </p>
+
+                            <ul class="social-list list-inline mt-3">
+                                <li class="list-inline-item text-center">
+                                    <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
+                                </li>
+
+                                <li class="list-inline-item text-center">
+                                    <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <div class="col-lg-3 mt-3 mt-lg-0">
+                            <h5 class="text-white">Company</h5>
+
+                            <ul class="list-unstyled pl-0 mb-0 mt-3">
+                                <li class="mt-2"><a href="javascript: void(0);" class="text-white-50">About Us</a></li>
+                                <li class="mt-2"><a href="javascript: void(0);" class="text-white-50">Blog</a></li>
+                            </ul>
+
+                        </div>
+
+
+                        <div class="col-lg-3 mt-3 mt-lg-0">
+                            <h5 class="text-white">Discover</h5>
+
+                            <ul class="list-unstyled pl-0 mb-0 mt-3">
+                                <li class="mt-2"><a href="javascript: void(0);" class="text-white-50">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="mt-5">
+                                <p class="text-white-50 mt-4 text-center mb-0"> © Michael Oton <script>document.write(new Date().getFullYear()) </script> - unenndito.com </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- END FOOTER -->
+        {% endblock footer %}
+    </div>
+
+    <!-- bundle -->
+    <script src="{% static 'unenndito_app/assets/js/vendor.min.js' %}"></script>
+    <script src="{% static 'unenndito_app/assets/js/app.min.js' %}"></script>
+    
+{% comment %} </div> {% endcomment %}
+
+</body>
+</html>
