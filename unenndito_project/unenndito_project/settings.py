@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os, sys
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,8 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
+
+# Then initialise all our enviroment variables
+load_dotenv()
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-t0vycb)=#n(ys8!q$r$sdma_4m7@t-ijn1mzw7@skvl%-6493y'
+# SECRET_KEY = '%s' % os.environ['DJANGO_BACKEND_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,6 +38,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,8 +46,34 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_comments_xtd',  # Changes/Modifications
+    'django_comments',  # Changes/Modifications
+
     'unenndito_app',
 ]
+
+
+# Changes/Modifications
+COMMENTS_APP = 'django_comments_xtd'
+
+COMMENTS_XTD_CONFIRM_EMAIL = False
+
+COMMENTS_XTD_MAX_THREAD_LEVEL = 1  # default is 0
+COMMENTS_XTD_LIST_ORDER = ('-thread_id', 'order')  # default is ('thread_id', 'order')
+
+COMMENTS_XTD_APP_MODEL_OPTIONS = {
+    'unenndito_app.post': {
+        'allow_flagging': True,
+        'allow_feedback': True,
+        'show_feedback': True,
+    }
+}
+
+
+SITE_ID = 2
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +83,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'unenndito_project.myCustomMiddleware.FilterIPMiddleware',
 ]
 
 ROOT_URLCONF = 'unenndito_project.urls'
@@ -81,6 +116,31 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# Email
+# Email configuration is simple. You just go into your DJANGO_SETTINGS_MODULE (aka settings.py) and add the following:
+# ***************************************************************
+# Either enable sending mail messages to the console:
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# ***************************************************************
+# Or set up the EMAIL_* settings so that Django can send emails:
+# EMAIL_HOST = 'smtp.email-host-provider-domain.com'
+# EMAIL_HOST_USER = 'yourusername@youremail.com'
+# EMAIL_HOST_PASSWORD = 'your password'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = 'Your Name <you@email.com>'
+
+# # ***************************************************************
+# # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = '%s' % os.environ['EMAIL_ADDRESS']
+# EMAIL_HOST_PASSWORD = '%s' % os.environ['EMAIL_PASSWORD']
+# # DEFAULT_FROM_EMAIL = "Helpdesk <helpdesk@yourdomain>"
 
 
 # Password validation
@@ -118,6 +178,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

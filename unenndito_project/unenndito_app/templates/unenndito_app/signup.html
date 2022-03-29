@@ -1,24 +1,30 @@
 {% extends 'base.html' %}
-{% block title %} Track Gov Signup {% endblock title %}
+{% block title %} Unen Ndito Registeration {% endblock title %}
 {% block content %}
 
     <div class="account-pages mt-3 mb-5">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-5">
+                <div class="col-lg-7">
                     <div class="card">
                         <!-- Logo-->
                         <div class="card-header pt-4 pb-4 text-center card-body">
                             <a href="{%  url 'home' %}">
-                                <span><img src="../../static/trackgovApp/assets/images/logo99.png" alt="" height="23" width="123"></span>
+                                <span><img src="../../static/unenndito_app/assets/images/" alt="" height="23" width="123"></span>
                             </a>
                         </div>
 
                         <div class="card-body p-4">
                             
                             <div class="text-center w-75 m-auto">
-                                <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Free Sign Up</h4>
-                                <p class="text-muted mb-4">Don't have an account? Create your account, it takes less than a minute </p>
+                                <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Free Registration</h4>
+                                <p class="text-muted mb-4">Have not yet registered? Register now, it takes less than a minute </p>
+
+                                {% if messages %}
+                                    {% for message in messages %}
+                                    {{ message }}
+                                    {% endfor %}
+                                {% endif %}
                             </div>
 
                             <form action="" method="POST" enctype="multipart/form-data">
@@ -51,6 +57,50 @@
                                 </div>
 
 
+                                <div class="form-group">
+                                    <label for="{{ form.firstname.Firstname }}">First Name</label>
+                                    {{ form.firstname.errors }}
+                                    <input class="form-control" type="text" id="firstname" name="firstname" placeholder="Enter your firstname" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="{{ form.middlename.Middlename }}">Middle Name</label>
+                                    {{ form.middlename.errors }}
+                                    <input class="form-control" type="text" id="middlename" name="middlename" placeholder="Enter your middlename" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="{{ form.lastname.Lastname }}">Last Name</label>
+                                    {{ form.lastname.errors }}
+                                    <input class="form-control" type="text" id="lastname" name="lastname" placeholder="Enter your lastname" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="{{ form.address.Address }}">Home Address</label>
+                                    {{ form.address.errors }}
+                                    <textarea class="form-control" type="text" id="address" name="address" placeholder="Enter your home address..." required></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="{{ form.phone.Phone }}">Phone</label>
+                                    {{ form.phone.errors }}
+                                    <input class="form-control" type="text" id="phone" name="phone" placeholder="Enter your phone" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="{{ form.age.Age }}">Age</label>
+                                    {{ form.age.errors }}
+                                    <input class="form-control" type="text" id="age" name="age" placeholder="Enter your age" required>
+                                </div>
+
+                                <div class="form-group mt-3">
+                                    <label for="{{ form.lga.Lga }}" class="mr-3">L. G. A</label>
+                                    {{ form.lga.errors }}
+                                    {% comment %} <select class="form-control" id="lga" name="lga" required></select> {% endcomment %}
+                                    {{ form.lga }}
+                                </div>
+
+
                                 {% comment %} <div class="fieldWrapper mt-3 form-group">
                                     <div class="input-group input-group-merge">
                                         <label for="">Password</label>
@@ -64,7 +114,7 @@
                                     </div>
                                 </div> {% endcomment %}
 
-                                <div class="form-group">
+                                {% comment %} <div class="form-group">
                                     <label for="{{ form.password.Password }}">Password</label>
                                     {{ form.password.errors }}
                                     <div class="input-group input-group-merge">
@@ -75,7 +125,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> {% endcomment %}
 
 
                                 <div class="form-group">
@@ -86,7 +136,7 @@
                                 </div>
 
                                 <div class="form-group mb-0 text-center">
-                                    <button class="btn btn-primary" type="submit"> Sign Up </button>
+                                    <button class="btn btn-primary" type="submit"> Submit </button>
                                 </div>
 
                             </form>
@@ -94,11 +144,6 @@
                     </div>
                     <!-- end card -->
 
-                    <div class="row mt-3">
-                        <div class="col-12 text-center">
-                            <p class="text-muted">Already have account? <a href="{% url 'login' %}" class="text-muted ml-1"><b>Log In</b></a></p>
-                        </div> <!-- end col-->
-                    </div>
                     <!-- end row -->
 
                 </div> <!-- end col -->

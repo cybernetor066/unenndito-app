@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block title %} Track Bill | Trackgov Dashboard {% endblock title %}
+{% load static %}
+
+{% block content %}
+    <!-- Begin page -->
+    <div class="wrapper">
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left-side-menu">
+
+            <div class="h-100" id="left-side-menu-container" data-simplebar>
+
+                <!--- Sidemenu -->
+                <ul class="metismenu side-nav">
+
+                    <li class="side-nav-title side-nav-item">Navigation</li>
+
+                    <li class="side-nav-item">
+                        <a href="javascript: void(0);" class="">
+                            <i class=""></i>
+                            <span class="badge badge-success float-right">4</span>
+                            <span>  </span>
+                        </a>
+                    </li>
+                </ul>
+
+                
+                <!-- End Sidebar -->
+
+                <div class="clearfix"></div>
+
+            </div>
+            <!-- Sidebar -left -->
+
+        </div>
+        <!-- Left Sidebar End -->
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page content-page-bill-list-custom">
+            <div class="content">
+                <!-- Start Content-->
+                <div class="container-fluid mt-lg-1 mt-md-1 mt-sm-1 mt-xl-4">
+
+                    <!-- start row -->
+                    <div class="row card">
+                        <!-- Blog Entries Column -->
+                        <div class="col-md-8 mt-3 left">
+                            {% for post in post_list %}
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h2 class="card-title">{{ post.title }}</h2>
+                                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} | Comments:  </p>
+                                    <p class="card-text">{{post.content|slice:":200" }}</p>
+                                    <a href="{% url 'post_detail' post.id  %}" class="btn btn-primary">Read More &rarr;</a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- end row -->
+                    <br />
+    
+                    
+                </div> <!-- container -->
+
+            </div> <!-- content -->
+
+            
+
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+
+    </div>
+    <!-- END wrapper -->
+
+
+    <script type="text/javascript" src="{% static 'trackgovApp/js/contact-buttons.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'trackgovApp/js/track-untrack.js' %}"></script>
+
+{% endblock content %}
+
+
+

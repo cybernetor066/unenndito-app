@@ -18,6 +18,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('unenndito_app.urls')),
+
+    path(r'comments/', include('django_comments_xtd.urls')), # Changes/Modifications
+
     path('admin/', admin.site.urls),
 ]
 

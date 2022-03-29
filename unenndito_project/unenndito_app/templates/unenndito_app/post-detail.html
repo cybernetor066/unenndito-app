@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% block title %} Blog Posts Detail {% endblock title %}
+{% load static %}
+
+{% comment %} Changes/Modifications {% endcomment %}
+{% load comments %}
+{% load comments_xtd %}
+
+{% block content %}
+    <!-- Begin page -->
+    <div class="wrapper">
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left-side-menu">
+
+            <div class="h-100" id="left-side-menu-container" data-simplebar>
+
+                <!--- Sidemenu -->
+                <ul class="metismenu side-nav">
+
+                    <li class="side-nav-title side-nav-item">Navigation</li>
+
+                    <li class="side-nav-item">
+                        <a href="javascript: void(0);" class="side-nav-link">
+                            <i class="uil-desktop"></i>
+                            <span class="badge badge-success float-right">4</span>
+                            <span> Dashboards </span>
+                        </a>
+                        {% comment %} <ul class="side-nav-second-level" aria-expanded="false">
+                            <li>
+                                <a href="dashboard-analytics.html">Analytics</a>
+                            </li>
+                            <li>
+                                <a href="dashboard-crm.html">CRM</a>
+                            </li>
+                            <li>
+                                <a href="index.html">Ecommerce</a>
+                            </li>
+                            <li>
+                                <a href="dashboard-projects.html">Projects</a>
+                            </li>
+                        </ul> {% endcomment %}
+                    </li>
+
+                    {% comment %} <li class="side-nav-title side-nav-item">Apps</li>
+
+                    <li class="side-nav-item">
+                        <a href="apps-calendar.html" class="side-nav-link">
+                            <i class="uil-calender"></i>
+                            <span> Categories </span>
+                        </a>
+                    </li>
+
+                    <li class="side-nav-item">
+                        <a href="apps-chat.html" class="side-nav-link">
+                            <i class="uil-comments-alt"></i>
+                            <span> posts </span>
+                        </a>
+                    </li> {% endcomment %}
+
+        
+                </ul>
+
+                
+                <!-- End Sidebar -->
+
+                <div class="clearfix"></div>
+
+            </div>
+            <!-- Sidebar -left -->
+
+        </div>
+        <!-- Left Sidebar End -->
+
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page content-page-custom">
+            <div class="content">
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+                    
+                    <!-- start page title -->
+                    <div class="row mt-lg-0 mt-md-5 mt-sm-3">
+                        <div class="col-lg-12 col-md-8 col-sm-4 mt-xl-5">
+                            <div class="page-title-box">
+                                <h4 class="page-title">{{ post_list.title }}</h4>
+                            </div>
+                        </div>
+                    </div>     
+                    <!-- end page title --> 
+
+                 
+                                            
+                    <!-- start row -->
+                    <div class="row card">
+                        <!-- Blog Entries Column -->
+                        <div class="col-md-8 mt-1 left">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h2 class="card-title">{{ post.title }}</h2>
+                                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} | Comments:  </p>
+                                    <p class="card-text">{{ post.content }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- end row -->
+
+                    <div class="row card">
+                        <div class="col-md-8 left">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="header-title mb-3">COMMENTS</h4>
+        
+                                    <div class="table-responsive">
+                                        {% comment %} Placeholder {% endcomment %}
+
+                                        {% comment %} Changes/Modifications {% endcomment %}
+                                        {% get_comment_count for post as comment_count %}
+                                        <div class="py-4 text-center">
+                                            {% comment %} <a href="{% url 'blog:post-list' %}">Back to the post list</a> {% endcomment %}
+                                            &nbsp;&sdot;&nbsp;
+                                            {{ comment_count }} comment{{ comment_count|pluralize }}
+                                            ha{{ comment_count|pluralize:"s,ve" }} been posted.
+                                        </div>
+                                        {% comment %} Displaying the comments form {% endcomment %}
+                                        <div class="card card-block mb-5">
+                                            <div class="card-body">
+                                                <h4 class="card-title text-center pb-3">Post your comment</h4>
+                                                {% render_comment_form for post %}
+                                            </div>
+                                        </div>
+
+                                        {% if comment_count %}
+                                            <ul class="media-list">
+                                            {% render_xtdcomment_tree for post allow_flagging allow_feedback show_feedback %}
+                                            </ul>
+                                        {% endif %}
+
+
+                                    </div>
+                                    <!-- end table-responsive -->
+        
+                                </div>
+                            </div>
+                        </div> <!-- end col -->
+
+                    </div>
+                    <!-- end row -->
+    
+                    
+                            
+                </div> <!-- container -->
+
+            </div> <!-- content -->
+
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+
+    </div>
+    <!-- END wrapper -->
+
+    <script type="text/javascript" src="{% static 'trackgovApp/js/contact-buttons.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'trackgovApp/js/track-untrack-detail.js' %}"></script>
+
+
+{% endblock content %}
